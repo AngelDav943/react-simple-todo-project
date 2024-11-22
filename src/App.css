@@ -1,0 +1,144 @@
+* {
+	box-sizing: border-box;
+	--outline: rgba(0, 0, 0, 0.3);
+	--primary: #6060e9;
+	--darkPrimary: #3737c9;
+	--background: #e9e9f6;
+}
+
+body {
+	margin: 0;
+	background-color: var(--background);
+}
+
+main {
+	margin: auto;
+	max-width: 700px;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.inputs {
+	flex-grow: 1;
+	display: flex;
+	margin-top: 2rem;
+}
+
+.inputs input,
+.inputs button {
+	padding: 1rem;
+	outline: none;
+	border: none;
+	border-radius: none;
+}
+
+.inputs .texto {
+	flex-grow: 1;
+	border: 1px solid var(--outline);
+	border-right: none;
+	border-top-left-radius: .5rem;
+	border-bottom-left-radius: .5rem;
+	padding-right: 0;
+	width: 100%;
+}
+
+button {
+	border: 1px solid var(--outline);
+	border-left: none;
+	border-top-right-radius: .5rem;
+	border-bottom-right-radius: .5rem;
+	cursor: pointer;
+	transition: background .1s ease-out;
+	outline: none;
+	border: none;
+}
+
+.inputs button {
+	background-color: var(--primary);
+	color: white;
+}
+
+.inputs button:hover {
+	background-color: var(--darkPrimary);
+}
+
+.tarea {
+	flex-grow: 1;
+	background-color: white;
+	border-radius: 0.5rem;
+
+	display: flex;
+	align-items: center;
+	padding: 0 .5rem;
+
+	transition: background .5s ease-out;
+}
+
+.tarea:has(input:checked) {
+	background-color: var(--primary);
+	color: var(--outline);
+
+	animation: checked .5s;
+}
+
+.tarea:has(button:hover) {
+	background-color: red;
+	color: white;
+
+	animation: shake .1s infinite ;
+}
+
+.tarea:has(button:hover) button {
+	color: white;
+}
+
+.tarea:has(button:hover) input[type="checkbox"]:checked {
+	border-color: red;
+}
+
+.tarea button {
+	background-color: transparent;
+	transform: rotate(45deg);
+	color: red;
+	font-size: 2.5rem;
+}
+
+.tarea p {
+	flex-grow: 1;
+	padding: 1rem;
+	margin: 0;
+	text-wrap: wrap;
+	word-break: break-all;
+	line-break: anywhere;
+}
+
+.tarea input[type="checkbox"] {
+	appearance: none;
+	height: 20px;
+	min-width: 20px;
+	border-radius: 100%;
+	outline: solid 4px var(--primary);
+	transition: background .2s, border .2s, outline .2s, border-color .5s ease-out;
+}
+
+.tarea input[type="checkbox"]:checked {
+	outline-color: var(--darkPrimary);
+	border: solid 4px var(--primary);
+	background-color: var(--darkPrimary);
+}
+
+@keyframes shake {
+	25% {
+		transform: translateX(-2px);
+	}
+	75% {
+		transform: translateX(2px);
+	}
+}
+
+@keyframes checked {
+	50% {
+		transform: rotate(-1deg);
+	}
+}
