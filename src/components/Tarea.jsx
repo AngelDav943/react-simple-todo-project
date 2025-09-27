@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Tarea(props) {
+function Tarea({ tarea, index, eliminarTarea }) {
 	return (
 		<div className='tarea'>
 			<input type="checkbox" />
-			<p>{props.tarea}</p>
-			<button onClick={() => props.eliminarTarea(props.index)} >+</button>
+			<p>{tarea}</p>
+			<button onClick={() => eliminarTarea(index)} >+</button>
 		</div>
 	)
 }
